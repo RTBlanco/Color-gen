@@ -12,14 +12,16 @@ function App() {
   }
 
   const addColor = () => {
-    setColors(prev => {
-      prev.push(generateRandom())
-    })
+    if (colors.length !== 0) {
+      setColors([...colors, generateRandom()])
+    } else {
+      setColors([generateRandom()])
+    }
   }
 
   const renderColors = () => {
     return colors.map((color, i) =>{
-      <Color key={i} color={generateRandom}/>
+      <Color key={i} color={color}/>
     })
   }
 
