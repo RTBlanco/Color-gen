@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <input id="gen-button" type="button" value="Generate" onClick={addColor}/>
-      <input id="clear-button" type="button" value="clear" />
+      <input id="clear-button" type="button" value="clear" onClick={() => setColors([])}/>
       <div id="colors">
         {renderColors()}
       </div>
