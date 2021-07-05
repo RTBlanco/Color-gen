@@ -3,26 +3,31 @@ import {useState, useEffect} from 'react'
 import Color from './Color';
 
 function App() {
-  // const [state, setState] = useState({color: "#ffffff"})
+  // an array of hex values 
+  const [colors, setColors] = useState([])
 
   // Create a function to gen a new hex color
-  // useEffect(() => {
-  //   let timer = setInterval(() => {
-  //     if (state.color === "#ffffff") {
-  //       setState({
-  //         color: "#ff5733"
-  //       })
-  //     } else {
-  //       setState({
-  //         color: "#ffffff"
-  //       })
-  //     }
-  //   }, 1000)
-  //   return () => clearInterval(timer)
-  // })
-  
+  const generateRandom = () => {
+    return "#" + Math.floor(Math.random() * 16777215).toString(16)
+  }
+
+  const addColor = () => {
+    setColors(prev => {
+      prev.push(generateRandom())
+    })
+  }
+
+  const renderColors = () => {
+    return colors.map((color, i) =>{
+      <Color key={i} color={generateRandom}/>
+    })
+  }
+
   return (
-    <Color color={"#ffffff"} />
+    <>
+      <input type="button" value="Generate" onClick={addColor}/>
+      {renderColors()}
+    </>
   );
 }
 
