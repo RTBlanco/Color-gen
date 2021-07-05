@@ -1,5 +1,5 @@
 import './App.css';
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import Color from './Color';
 
 function App() {
@@ -20,9 +20,7 @@ function App() {
   }
 
   const renderColors = () => {
-    return colors.map((color, i) =>{
-      <Color key={i} color={color}/>
-    })
+    return colors.map((color, i) => <Color key={i} color={color}/> )
   }
 
   return (

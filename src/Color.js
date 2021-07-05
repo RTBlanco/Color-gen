@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 function Color({color}) {
 
   return (
-    <div className="color">
+    <div className="color" style={{background: color}}>
       <h1>color: {color}</h1>
     </div>
   )
